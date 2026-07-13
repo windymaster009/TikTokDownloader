@@ -20,6 +20,8 @@ pydantic==2.13.4
     # via douk-downloader (pyproject.toml)
 pyperclip==1.11.0
     # via douk-downloader (pyproject.toml)
+pyside6>=6.8.0
+    # via douk-downloader (pyproject.toml)
 qrcode==8.2
     # via douk-downloader (pyproject.toml)
 rich==15.0.0
