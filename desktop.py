@@ -9,7 +9,7 @@ from src.desktop import MainWindow
 
 def main() -> int:
     app = QApplication(sys.argv)
-    app.setApplicationName("DouK Downloader Desktop")
+    app.setApplicationName("TikTok Downloader Desktop")
     app.setOrganizationName("WindyMaster")
 
     window = MainWindow()
