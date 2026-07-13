@@ -2,7 +2,7 @@
 
 The `destop-mod` branch adds a Windows-friendly PySide6 desktop application while keeping the original terminal entry point unchanged.
 
-## Desktop milestone 2
+## Desktop milestone 3
 
 - Sidebar navigation matching the planned desktop layout.
 - Home dashboard.
@@ -14,8 +14,20 @@ The `destop-mod` branch adds a Windows-friendly PySide6 desktop application whil
 - Dedicated settings and application-log pages.
 - Optional TikTok/Douyin cookies and proxies.
 - Open the output folder after completion.
+- New **Engine Tools** page exposing the original terminal controls:
+  - Paste TikTok or Douyin cookies from the clipboard.
+  - Open the complete original terminal menu.
+  - Enable desktop clipboard monitoring mode.
+  - Start and stop the local Web API server.
+  - Open the generated API documentation.
+  - Enable or disable original-engine works download records.
+  - Enable or disable original-engine runtime logs.
+  - Change the terminal language.
+  - Manage the disclaimer state.
+  - Delete original-engine download records.
+  - Open `settings.json`, the engine data folder, and the releases page.
 
-Direct-link downloads now use `yt-dlp`. This avoids the upstream DouK encrypted-request code that currently returns `Failed to retrieve data` for some TikTok posts. The original DouK code remains in the repository for the advanced account, collection, and live features that will be connected in later milestones.
+Direct-link downloads use `yt-dlp`. This avoids the upstream DouK encrypted-request code that currently returns `Failed to retrieve data` for some TikTok posts. The original DouK code remains available through **Engine Tools** for terminal, API, account, collection, live, search, and data-collection workflows.
 
 ## Update an existing checkout
 
@@ -24,8 +36,6 @@ git fetch origin
 git checkout destop-mod
 git pull origin destop-mod
 ```
-
-Then refresh dependencies because milestone 2 adds `yt-dlp`.
 
 ### Run with uv
 
@@ -38,7 +48,7 @@ uv run desktop.py
 
 ```powershell
 venv\Scripts\activate
-pip install -r requirements.txt
+python -m pip install -U yt-dlp
 python desktop.py
 ```
 
@@ -53,8 +63,8 @@ python desktop.py
 
 ## Cookies
 
-Most public posts should work without a cookie. When TikTok or Douyin requires login, open **Settings** in the sidebar and paste a fresh raw Cookie header from your own browser session.
+Most public posts should work without a cookie. When TikTok or Douyin requires login, use **Engine Tools → Cookie Tools** or open **Settings** in the sidebar and paste a fresh raw Cookie header from your own browser session.
 
 ## Current advanced-feature scope
 
-Direct links, history, settings, logs, and clipboard monitoring are functional. Account batch downloads, collections, live recording, cancellation, and a packaged Windows installer remain planned for later desktop milestones.
+Direct links, history, settings, logs, clipboard monitoring, terminal tools, engine preferences, and Web API process controls are functional. The original terminal remains available for its complete account, collection, live, comment, search, hot-list, and data-collection feature set. Native desktop forms for every advanced workflow and a packaged Windows installer remain planned for later milestones.
