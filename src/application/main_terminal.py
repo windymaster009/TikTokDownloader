@@ -1787,7 +1787,7 @@ class TikTok:
         proxy: str = None,
     ):
         self.logger.info(
-            _("正在获取账号 {sec_user_id} 的数据").format(sec_user_id=sec_user_id)
+            "Fetching data for account {sec_user_id}".format(sec_user_id=sec_user_id)
         )
         data = await User(
             self.parameter,
@@ -1858,7 +1858,7 @@ class TikTok:
             function=self.__function_search,
             select=select or safe_pop(self.run_command),
         )
-        self.logger.info("已退出采集搜索结果数据模式")
+        self.logger.info("Exited search-result collection mode")
 
     @staticmethod
     def generate_model(
@@ -1926,7 +1926,7 @@ class TikTok:
             ):
                 self.logger.warning(model)
                 continue
-            self.logger.info(f"搜索参数: {model.model_dump()}", False)
+            self.logger.info(f"Search parameters: {model.model_dump()}", False)
             if isinstance(
                 r := await self.deal_search_data(
                     model,

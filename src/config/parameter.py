@@ -319,7 +319,7 @@ class Parameter:
             for i in parameters:
                 if i:
                     self.logger.info(
-                        f"参数: {i}",
+                        f"Parameters: {i}",
                         False,
                     )
                     cookie |= i
@@ -328,7 +328,7 @@ class Parameter:
             for i in parameters:
                 if i:
                     self.logger.info(
-                        f"参数: {i}",
+                        f"Parameters: {i}",
                         False,
                     )
                     cookie += f"; {cookie_dict_to_str(i)}"
@@ -341,7 +341,9 @@ class Parameter:
             self.headers_params,
             proxy=self.proxy,
         ):
-            self.logger.info(f"抖音 {TtWid.NAME} 请求值: {tt_wid[TtWid.NAME]}", False)
+            self.logger.info(
+                f"Douyin {TtWid.NAME} request value: {tt_wid[TtWid.NAME]}", False
+            )
             return tt_wid
         return {}
 
@@ -360,7 +362,8 @@ class Parameter:
             proxy=self.proxy_tiktok,
         ):
             self.logger.info(
-                f"TikTok {TtWidTikTok.NAME} 请求值: {tt_wid[TtWidTikTok.NAME]}", False
+                f"TikTok {TtWidTikTok.NAME} request value: {tt_wid[TtWidTikTok.NAME]}",
+                False,
             )
             return tt_wid
         return {}
@@ -369,10 +372,10 @@ class Parameter:
         if not root:
             return self.ROOT
         if (r := Path(root)).is_dir():
-            self.logger.info(f"root 参数已设置为 {root}", False)
+            self.logger.info(f"root parameter set to {root}", False)
             return r
         if r := self.__check_root_again(r):
-            self.logger.info(f"root 参数已设置为 {r}", False)
+            self.logger.info(f"root parameter set to {r}", False)
             return r
         self.logger.warning(
             _(
@@ -392,7 +395,7 @@ class Parameter:
         if folder_name := self.CLEANER.filter_name(
             folder_name,
         ):
-            self.logger.info(f"folder_name 参数已设置为 {folder_name}", False)
+            self.logger.info(f"folder_name parameter set to {folder_name}", False)
             return folder_name
         self.logger.warning(
             _(
@@ -404,7 +407,7 @@ class Parameter:
     def __check_name_format(self, name_format: str) -> list[str]:
         name_keys = name_format.strip().split(" ")
         if all(i in self.NAME_KEYS for i in name_keys):
-            self.logger.info(f"name_format 参数已设置为 {name_format}", False)
+            self.logger.info(f"name_format parameter set to {name_format}", False)
             return name_keys
         else:
             self.logger.warning(
@@ -417,7 +420,7 @@ class Parameter:
     def __check_date_format(self, date_format: str) -> str:
         try:
             strftime(date_format, localtime())
-            self.logger.info(f"date_format 参数已设置为 {date_format}", False)
+            self.logger.info(f"date_format parameter set to {date_format}", False)
             return date_format
         except ValueError:
             self.logger.warning(
@@ -436,7 +439,7 @@ class Parameter:
                     )
                 )
                 return "-"
-        self.logger.info(f"split 参数已设置为 {split}", False)
+        self.logger.info(f"split parameter set to {split}", False)
         return split
 
     def __check_proxy_tiktok(
@@ -503,7 +506,7 @@ class Parameter:
 
     def __check_max_size(self, max_size: int) -> int:
         max_size = max(max_size, 0)
-        self.logger.info(f"max_size 参数已设置为 {max_size}", False)
+        self.logger.info(f"max_size parameter set to {max_size}", False)
         return max_size
 
     def __check_chunk(self, chunk: int) -> int:
@@ -524,7 +527,7 @@ class Parameter:
 
     def __check_max_pages(self, max_pages: int) -> int:
         if isinstance(max_pages, int) and max_pages > 0:
-            self.logger.info(f"max_pages 参数已设置为 {max_pages}", False)
+            self.logger.info(f"max_pages parameter set to {max_pages}", False)
             return max_pages
         elif max_pages != 0:
             self.logger.warning(
@@ -544,11 +547,12 @@ class Parameter:
 
     def __check_storage_format(self, storage_format: str) -> str:
         if storage_format in RecordManager.DataLogger.keys():
-            self.logger.info(f"storage_format 参数已设置为 {storage_format}", False)
+            self.logger.info(f"storage_format parameter set to {storage_format}", False)
             return storage_format
         if not storage_format:
             self.logger.info(
-                "storage_format 参数未设置，程序不会储存任何数据至文件", False
+                "storage_format is not set; collected data will not be saved to a file",
+                False,
             )
         else:
             self.logger.warning(
@@ -756,7 +760,7 @@ class Parameter:
             proxy=self.proxy,
         ):
             self.logger.info(
-                f"抖音 MsToken 请求值: {d[MsToken.NAME]}",
+                f"Douyin MsToken request value: {d[MsToken.NAME]}",
                 False,
             )
             return d
@@ -766,7 +770,7 @@ class Parameter:
                 MsToken.NAME,
             )
             self.logger.info(
-                f"抖音 MsToken 本地值: {ms_token}",
+                f"Douyin MsToken local value: {ms_token}",
                 False,
             )
             return {MsToken.NAME: ms_token}
@@ -1021,7 +1025,7 @@ class Parameter:
         self,
         info: dict[str, str],
     ) -> None:
-        self.logger.info(f"抖音浏览器信息: {info}", False)
+        self.logger.info(f"Douyin browser information: {info}", False)
         if ua := info.get(
             "User-Agent",
         ):
@@ -1061,7 +1065,7 @@ class Parameter:
         self,
         info: dict,
     ):
-        self.logger.info(f"TikTok 浏览器信息: {info}", False)
+        self.logger.info(f"TikTok browser information: {info}", False)
         if ua := info.get(
             "User-Agent",
         ):
@@ -1119,7 +1123,7 @@ class Parameter:
     ) -> int:
         if isinstance(value, int):
             if value >= minimum:
-                self.logger.info(f"{name} 参数已设置为 {value}", False)
+                self.logger.info(f"{name} parameter set to {value}", False)
                 return value
             self.logger.warning(
                 _("{key} 参数 {value} 设置过小，程序将使用默认值：{default}").format(
@@ -1140,7 +1144,7 @@ class Parameter:
 
     def __check_live_qualities(self, live_qualities: str) -> str:
         if isinstance(live_qualities, str):
-            self.logger.info(f"live_qualities 参数已设置为 {live_qualities}", False)
+            self.logger.info(f"live_qualities parameter set to {live_qualities}", False)
             return live_qualities
         self.logger.warning(
             _("live_qualities 参数 {live_qualities} 设置错误").format(

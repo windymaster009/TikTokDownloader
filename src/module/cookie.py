@@ -39,7 +39,7 @@ class Cookie:
             cookie: str = paste()
 
         if not self.validate_cookie_minimal(cookie):
-            self.console.warning(_("当前内容不是有效的 Cookie 内容！"))
+            self.console.warning("The supplied content is not a valid Cookie!")
             return False
 
         self.extract(

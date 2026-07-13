@@ -544,7 +544,7 @@ class Extractor:
             )
         except AttributeError:
             self.log.error(
-                f"视频下载地址解析失败: {data}",
+                f"Failed to parse video download URL: {data}",
                 False,
             )
             height = self.safe_extract(
@@ -633,7 +633,7 @@ class Extractor:
             )
         except AttributeError:
             self.log.error(
-                f"视频下载地址解析失败: {data}",
+                f"Failed to parse video download URL: {data}",
                 False,
             )
             height = self.safe_extract(
@@ -1056,7 +1056,7 @@ class Extractor:
         container.cache["create_time"] = self.__format_date(
             container.cache["create_timestamp"]
         )
-        container.cache["ip_label"] = self.safe_extract(data, "ip_label", "未知")
+        container.cache["ip_label"] = self.safe_extract(data, "ip_label", "Unknown")
         container.cache["text"] = self.safe_extract(data, "text")
         container.cache["image"] = self.safe_extract(
             data,
@@ -1162,7 +1162,7 @@ class Extractor:
         live_data = {
             "create_time": datetime.fromtimestamp(t)
             if (t := self.safe_extract(data, "create_time"))
-            else "未知",
+            else "Unknown",
             "id_str": self.safe_extract(data, "id_str"),
             "like_count": self.safe_extract(data, "like_count"),
             "nickname": self.safe_extract(data, "owner.nickname"),
@@ -1225,9 +1225,9 @@ class Extractor:
         container.cache["total_favorited"] = self.safe_extract(
             data, "total_favorited", -1
         )
-        container.cache["gender"] = {1: "男", 2: "女"}.get(
+        container.cache["gender"] = {1: "Male", 2: "Female"}.get(
             self.safe_extract(data, "gender"),
-            "未知",
+            "Unknown",
         )
         container.cache["ip_location"] = self.safe_extract(data, "ip_location")
         container.cache["nickname"] = self.safe_extract(data, "nickname")
@@ -1243,9 +1243,9 @@ class Extractor:
         )
         container.cache["short_id"] = self.safe_extract(data, "short_id")
         container.cache["aweme_count"] = self.safe_extract(data, "aweme_count", -1)
-        container.cache["verify"] = self.safe_extract(data, "custom_verify", "无")
+        container.cache["verify"] = self.safe_extract(data, "custom_verify", "None")
         container.cache["enterprise"] = self.safe_extract(
-            data, "enterprise_verify_reason", "无"
+            data, "enterprise_verify_reason", "None"
         )
         container.cache["url"] = (
             f"https://www.douyin.com/user/{container.cache['sec_uid']}"
@@ -1346,9 +1346,9 @@ class Extractor:
         container.cache["signature"] = self.safe_extract(data, "signature")
         container.cache["uid"] = self.safe_extract(data, "uid")
         container.cache["short_id"] = self.safe_extract(data, "short_id")
-        container.cache["verify"] = self.safe_extract(data, "custom_verify", "无")
+        container.cache["verify"] = self.safe_extract(data, "custom_verify", "None")
         container.cache["enterprise"] = self.safe_extract(
-            data, "enterprise_verify_reason", "无"
+            data, "enterprise_verify_reason", "None"
         )
         if user:
             container.cache["follower_count"] = self.safe_extract(
@@ -1484,7 +1484,7 @@ class Extractor:
     def __extract_item_records(self, data: list[dict]):
         # 记录提取成功的条目
         for i in data:
-            self.log.info(f"{i['type']} {i['id']} 数据提取成功", False)
+            self.log.info(f"{i['type']} {i['id']} data extracted successfully", False)
 
     @classmethod
     def extract_mix_collect_info(cls, data: list[dict]) -> list[dict]:

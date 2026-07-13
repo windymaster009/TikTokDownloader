@@ -56,14 +56,14 @@ class ClipboardMonitor(TikTok):
         )
 
     async def stop_listener(self):
-        self.console.debug("停止监听剪贴板！")
+        self.console.debug("Stopped monitoring the clipboard!")
         self.event_clipboard.set()
 
     async def check_clipboard(
         self,
         delay: int | float = 1,
     ):
-        self.console.debug("开始监听剪贴板！")
+        self.console.debug("Started monitoring the clipboard!")
         while not self.event_clipboard.is_set():
             if (c := paste()).lower() == "close":
                 await self.stop_listener()
@@ -79,10 +79,10 @@ class ClipboardMonitor(TikTok):
         links = text.split()
         for i in links:
             if "douyin" in i:
-                self.console.debug(f"处理抖音链接: {i}")
+                self.console.debug(f"Processing a Douyin link: {i}")
                 await self.queue_dy.put(i)
             elif "tiktok" in i:
-                self.console.debug(f"处理 TikTok 链接: {i}")
+                self.console.debug(f"Processing a TikTok link: {i}")
                 await self.queue_tk.put(i)
 
     async def deal_tasks(

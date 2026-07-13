@@ -84,7 +84,7 @@ class __DownloadRecorder:
         if self.state:
             return ids
         self.console.print(
-            f"程序检测到上次运行可能没有正常结束，您的作品下载记录数据可能已经丢失！\n数据文件路径：{
+            f"The previous run may not have ended normally, and download records may have been lost.\nData file path: {
                 self.path.resolve()
             }",
             style=ERROR,
@@ -92,24 +92,25 @@ class __DownloadRecorder:
         if self.backup.exists():
             if (
                 self.console.input(
-                    "检测到 IDRecorder 备份文件，是否恢复最后一次备份的数据(YES/NO): ",
+                    "An IDRecorder backup was found. Restore the latest backup (YES/NO)? ",
                     style=WARNING,
                 ).upper()
                 == "YES"
             ):
                 self.path.write_text(self.backup.read_text(encoding=self.encode))
                 self.console.print(
-                    "IDRecorder 已恢复最后一次备份的数据，请重新运行程序！", style=INFO
+                    "IDRecorder restored the latest backup. Restart the program!",
+                    style=INFO,
                 )
                 return set(self.backup.read_text(encoding=self.encode).split())
             else:
                 self.console.print(
-                    "IDRecorder 数据未恢复，下载任意作品之后，备份数据会被覆盖导致无法恢复！",
+                    "IDRecorder data was not restored. Downloading any work will overwrite the backup and make it unrecoverable!",
                     style=ERROR,
                 )
         else:
             self.console.print(
-                "未检测到 IDRecorder 备份文件，您的作品下载记录数据无法恢复！",
+                "No IDRecorder backup was found; download records cannot be restored!",
                 style=ERROR,
             )
         return set()

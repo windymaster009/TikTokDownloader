@@ -33,13 +33,13 @@ def load_objects_from_external_py(
     file_path = base_dir / file_name
 
     if not file_path.exists():
-        console.info(_("加密参数代码文件不存在！"))
+        console.info("The encryption-parameter code file does not exist!")
         return {}
 
     # 1. 动态加载 .py 文件为模块
     spec = importlib.util.spec_from_file_location("external_dynamic_module", file_path)
     if spec is None or spec.loader is None:
-        console.error(_("加密参数代码文件加载失败！"))
+        console.error("Failed to load the encryption-parameter code file!")
         return {}
 
     module = importlib.util.module_from_spec(spec)

@@ -65,4 +65,4 @@ class XLSXLogger(BaseTextLogger):
                 _("数据包含非法字符，保存数据失败：{error}").format(error=e)
             )
         except Exception as e:
-            self.console.error(_("保存数据发生异常：{error}").format(error=e))
+            self.console.error(f"An error occurred while saving data: {e}")

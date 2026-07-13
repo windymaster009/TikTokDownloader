@@ -1,7 +1,7 @@
 <div align="center">
 <img src="./static/images/DouK-Downloader.png" alt="DouK-Downloader" height="256" width="256"><br>
 <h1>DouK-Downloader</h1>
-<p><a href="README.md">简体中文</a> | English</p>
+<p><a href="README.md">Simplified Chinese</a> | English</p>
 <a href="https://trendshift.io/repositories/6222" target="_blank"><img src="https://trendshift.io/api/badge/repositories/6222" alt="" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 <br>
 <img alt="GitHub" src="https://img.shields.io/github/license/JoeanAmier/TikTokDownloader?style=flat-square">
@@ -83,11 +83,11 @@
 
 <p>It is recommended to manage accounts through configuration files. For more information, please refer to the <a href="https://github.com/JoeanAmier/TikTokDownloader/wiki/Documentation">documentation</a></p>
 
-![终端模式截图](docs/screenshot/终端交互模式截图EN1.png)
+![Terminal mode screenshot](docs/screenshot/终端交互模式截图EN1.png)
 *****
-![终端模式截图](docs/screenshot/终端交互模式截图EN2.png)
+![Terminal mode screenshot](docs/screenshot/终端交互模式截图EN2.png)
 *****
-![终端模式截图](docs/screenshot/终端交互模式截图EN3.png)
+![Terminal mode screenshot](docs/screenshot/终端交互模式截图EN3.png)
 
 ## Web UI interaction mode
 
@@ -96,9 +96,9 @@ future development is completed!**
 
 ## Web API mode
 
-![WebAPI模式截图](docs/screenshot/WebAPI模式截图EN1.png)
+![Web API mode screenshot](docs/screenshot/WebAPI模式截图EN1.png)
 *****
-![WebAPI模式截图](docs/screenshot/WebAPI模式截图EN2.png)
+![Web API mode screenshot](docs/screenshot/WebAPI模式截图EN2.png)
 
 > **After starting this mode, Open http://127.0.0.1:5555/docs or http://127.0.0.1:5555/redoc to access the automatically
 generated documentation!**
@@ -263,7 +263,7 @@ the program based on the latest source code!
 #### 3. Manually Trigger the Build Process
 
 1. In your forked repository, click the **Actions** tab at the top
-2. Find the workflow named **构建可执行文件**
+2. Find the workflow named **Build executable files**
 3. Click the **Run workflow** button on the right:
     - Select the **master** or **develop** branch
     - Click **Run workflow**
@@ -388,13 +388,13 @@ repository to execute the build process
 <table>
 <thead>
 <tr>
-<th align="center">微信(WeChat)</th>
-<th align="center">支付宝(Alipay)</th>
+<th align="center">WeChat</th>
+<th align="center">Alipay</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><img src="./docs/微信赞助二维码.png" alt="微信赞助二维码" height="200" width="200"></td>
-<td align="center"><img src="./docs/支付宝赞助二维码.png" alt="支付宝赞助二维码" height="200" width="200"></td>
+<td align="center"><img src="./docs/微信赞助二维码.png" alt="WeChat sponsorship QR code" height="200" width="200"></td>
+<td align="center"><img src="./docs/支付宝赞助二维码.png" alt="Alipay sponsorship QR code" height="200" width="200"></td>
 </tr>
 </tbody>
 </table>
@@ -410,8 +410,8 @@ repository to execute the build process
 </ul>
 <p>✨ <b>The author's other open-source projects:</b></p>
 <ul>
-<li><b>XHS-Downloader（小红书、XiaoHongShu、RedNote）</b>：<a href="https://github.com/JoeanAmier/XHS-Downloader">https://github.com/JoeanAmier/XHS-Downloader</a></li>
-<li><b>KS-Downloader（快手、KuaiShou）</b>：<a href="https://github.com/JoeanAmier/KS-Downloader">https://github.com/JoeanAmier/KS-Downloader</a></li>
+<li><b>XHS-Downloader (XiaoHongShu / RedNote)</b>: <a href="https://github.com/JoeanAmier/XHS-Downloader">https://github.com/JoeanAmier/XHS-Downloader</a></li>
+<li><b>KS-Downloader (KuaiShou)</b>: <a href="https://github.com/JoeanAmier/KS-Downloader">https://github.com/JoeanAmier/KS-Downloader</a></li>
 </ul>
 
 # ⚠️ Disclaimer

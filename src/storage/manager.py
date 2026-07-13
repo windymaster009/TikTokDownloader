@@ -20,12 +20,12 @@ class RecordManager:
     detail = (
         (
             "type",
-            "作品类型",
+            "Work Type",
             "TEXT",
         ),
         (
             "collection_time",
-            "采集时间",
+            "Collection Time",
             "TEXT",
         ),
         (
@@ -46,145 +46,145 @@ class RecordManager:
         # ("short_id", "SHORT_ID", "TEXT",),
         (
             "id",
-            "作品ID",
+            "Work ID",
             "TEXT",
         ),
         (
             "desc",
-            "作品描述",
+            "Description",
             "TEXT",
         ),
         (
             "text_extra",
-            "作品话题",
+            "Hashtags",
             "TEXT",
         ),
         (
             "duration",
-            "视频时长",
+            "Video Duration",
             "TEXT",
         ),
         # ("ratio", "视频分辨率", "TEXT",),
         (
             "height",
-            "视频高度",
+            "Video Height",
             "INTEGER",
         ),
         (
             "width",
-            "视频宽度",
+            "Video Width",
             "INTEGER",
         ),
         (
             "share_url",
-            "作品链接",
+            "Work URL",
             "TEXT",
         ),
         (
             "create_time",
-            "发布时间",
+            "Publish Time",
             "TEXT",
         ),
         (
             "uri",
-            "视频URI",
+            "Video URI",
             "TEXT",
         ),
         (
             "nickname",
-            "账号昵称",
+            "Account Nickname",
             "TEXT",
         ),
         (
             "user_age",
-            "年龄",
+            "Age",
             "INTEGER",
         ),
         (
             "signature",
-            "账号签名",
+            "Account Bio",
             "TEXT",
         ),
         (
             "downloads",
-            "下载地址",
+            "Download URLs",
             "TEXT",
         ),
         (
             "music_author",
-            "音乐作者",
+            "Music Author",
             "TEXT",
         ),
         (
             "music_title",
-            "音乐标题",
+            "Music Title",
             "TEXT",
         ),
         (
             "music_url",
-            "音乐链接",
+            "Music URL",
             "TEXT",
         ),
         (
             "static_cover",
-            "静态封面",
+            "Static Cover",
             "TEXT",
         ),
         (
             "dynamic_cover",
-            "动态封面",
+            "Animated Cover",
             "TEXT",
         ),
         (
             "tag",
-            "隐藏标签",
+            "Hidden Tags",
             "TEXT",
         ),
         (
             "digg_count",
-            "点赞数量",
+            "Likes",
             "INTEGER",
         ),
         (
             "comment_count",
-            "评论数量",
+            "Comments",
             "INTEGER",
         ),
         (
             "collect_count",
-            "收藏数量",
+            "Favorites",
             "INTEGER",
         ),
         (
             "share_count",
-            "分享数量",
+            "Shares",
             "INTEGER",
         ),
         (
             "play_count",
-            "播放数量",
+            "Views",
             "INTEGER",
         ),
         (
             "extra",
-            "额外信息",
+            "Additional Information",
             "TEXT",
         ),
     )
     comment = (
         (
             "collection_time",
-            "采集时间",
+            "Collection Time",
             "TEXT",
         ),
         (
             "cid",
-            "评论ID",
+            "Comment ID",
             "TEXT",
         ),
         (
             "create_time",
-            "评论时间",
+            "Comment Time",
             "TEXT",
         ),
         (
@@ -201,129 +201,129 @@ class RecordManager:
         # ("unique_id", "抖音号", "TEXT",),
         (
             "nickname",
-            "账号昵称",
+            "Account Nickname",
             "TEXT",
         ),
         (
             "signature",
-            "账号签名",
+            "Account Bio",
             "TEXT",
         ),
         (
             "user_age",
-            "年龄",
+            "Age",
             "INTEGER",
         ),
         (
             "ip_label",
-            "IP归属地",
+            "IP Location",
             "TEXT",
         ),
         (
             "text",
-            "评论内容",
+            "Comment",
             "TEXT",
         ),
         (
             "sticker",
-            "评论表情",
+            "Comment Sticker",
             "TEXT",
         ),
         (
             "image",
-            "评论图片",
+            "Comment Images",
             "TEXT",
         ),
         (
             "digg_count",
-            "点赞数量",
+            "Likes",
             "INTEGER",
         ),
         (
             "reply_comment_total",
-            "回复数量",
+            "Replies",
             "INTEGER",
         ),
         (
             "reply_id",
-            "回复ID",
+            "Reply ID",
             "TEXT",
         ),
         (
             "reply_to_reply_id",
-            "回复对象",
+            "Reply Target",
             "TEXT",
         ),
     )
     user = (
         (
             "collection_time",
-            "采集时间",
+            "Collection Time",
             "TEXT",
         ),
         (
             "nickname",
-            "昵称昵称",
+            "Account Nickname",
             "TEXT",
         ),
         (
             "url",
-            "账号链接",
+            "Account URL",
             "TEXT",
         ),
         (
             "signature",
-            "账号签名",
+            "Account Bio",
             "TEXT",
         ),
         (
             "unique_id",
-            "抖音号",
+            "Douyin ID",
             "TEXT",
         ),
         (
             "user_age",
-            "年龄",
+            "Age",
             "INTEGER",
         ),
         (
             "gender",
-            "性别",
+            "Gender",
             "TEXT",
         ),
         (
             "country",
-            "国家",
+            "Country",
             "TEXT",
         ),
         (
             "province",
-            "省份",
+            "Province",
             "TEXT",
         ),
         (
             "city",
-            "城市",
+            "City",
             "TEXT",
         ),
         (
             "district",
-            "地区",
+            "District",
             "TEXT",
         ),
         (
             "ip_location",
-            "IP归属地",
+            "IP Location",
             "TEXT",
         ),
         (
             "verify",
-            "标签",
+            "Verification",
             "TEXT",
         ),
         (
             "enterprise",
-            "企业",
+            "Enterprise",
             "TEXT",
         ),
         (
@@ -343,49 +343,49 @@ class RecordManager:
         ),
         (
             "avatar",
-            "头像链接",
+            "Avatar URL",
             "TEXT",
         ),
         (
             "cover",
-            "背景图链接",
+            "Cover URL",
             "TEXT",
         ),
         (
             "aweme_count",
-            "作品数量",
+            "Works",
             "INTEGER",
         ),
         (
             "total_favorited",
-            "获赞数量",
+            "Total Likes",
             "INTEGER",
         ),
         (
             "favoriting_count",
-            "喜欢数量",
+            "Liked Works",
             "INTEGER",
         ),
         (
             "follower_count",
-            "粉丝数量",
+            "Followers",
             "INTEGER",
         ),
         (
             "following_count",
-            "关注数量",
+            "Following",
             "INTEGER",
         ),
         (
             "max_follower_count",
-            "粉丝最大值",
+            "Maximum Followers",
             "INTEGER",
         ),
     )
     search_user = (
         (
             "collection_time",
-            "采集时间",
+            "Collection Time",
             "TEXT",
         ),
         (
@@ -400,12 +400,12 @@ class RecordManager:
         ),
         (
             "nickname",
-            "账号昵称",
+            "Account Nickname",
             "TEXT",
         ),
         (
             "unique_id",
-            "抖音号",
+            "Douyin ID",
             "TEXT",
         ),
         (
@@ -415,44 +415,44 @@ class RecordManager:
         ),
         (
             "avatar",
-            "头像链接",
+            "Avatar URL",
             "TEXT",
         ),
         (
             "signature",
-            "账号签名",
+            "Account Bio",
             "TEXT",
         ),
         (
             "verify",
-            "标签",
+            "Verification",
             "TEXT",
         ),
         (
             "enterprise",
-            "企业",
+            "Enterprise",
             "TEXT",
         ),
         (
             "follower_count",
-            "粉丝数量",
+            "Followers",
             "INTEGER",
         ),
         (
             "total_favorited",
-            "获赞数量",
+            "Total Likes",
             "INTEGER",
         ),
     )
     search_live = (
         (
             "collection_time",
-            "采集时间",
+            "Collection Time",
             "TEXT",
         ),
         (
             "room_id",
-            "直播ID",
+            "Live ID",
             "TEXT",
         ),
         (
@@ -467,7 +467,7 @@ class RecordManager:
         ),
         (
             "nickname",
-            "账号昵称",
+            "Account Nickname",
             "TEXT",
         ),
         (
@@ -477,59 +477,59 @@ class RecordManager:
         ),
         (
             "avatar",
-            "头像链接",
+            "Avatar URL",
             "TEXT",
         ),
         (
             "signature",
-            "账号签名",
+            "Account Bio",
             "TEXT",
         ),
         (
             "verify",
-            "标签",
+            "Verification",
             "TEXT",
         ),
         (
             "enterprise",
-            "企业",
+            "Enterprise",
             "TEXT",
         ),
     )
     hot = (
         (
             "position",
-            "排名",
+            "Rank",
             "INTEGER",
         ),
         (
             "word",
-            "内容",
+            "Content",
             "TEXT",
         ),
         (
             "hot_value",
-            "热度",
+            "Popularity",
             "INTEGER",
         ),
         (
             "cover",
-            "封面",
+            "Cover",
             "TEXT",
         ),
         (
             "event_time",
-            "时间",
+            "Time",
             "TEXT",
         ),
         (
             "view_count",
-            "浏览数量",
+            "Views",
             "INTEGER",
         ),
         (
             "video_count",
-            "视频数量",
+            "Videos",
             "INTEGER",
         ),
         (

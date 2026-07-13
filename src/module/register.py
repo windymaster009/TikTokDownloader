@@ -107,7 +107,7 @@ class __Register:
         img = qr_code.make_image()
         img.save(self.cache)
         self.console.print(
-            "请使用抖音 APP 扫描二维码登录，如果二维码无法识别，请尝试更换终端或者选择其他方式写入 Cookie！"
+            "Scan the QR code with the Douyin app to sign in. If it cannot be recognized, try another terminal or use a different method to enter the Cookie!"
         )
         self._open_qrcode_image()
 
@@ -154,7 +154,7 @@ class __Register:
         self.url_params["token"] = token
         self.url_params |= {"is_frontier": "false"}
         with self.__check_progress_object() as progress:
-            task_id = progress.add_task("正在检查登录状态", total=None)
+            task_id = progress.add_task("Checking sign-in status", total=None)
             second = 0
             while second < 30:
                 sleep(1)
@@ -163,18 +163,21 @@ class __Register:
                     url=self.check_url, params=self.url_params
                 )
                 if not data:
-                    self.console.print("网络异常，无法获取登录状态！", style=WARNING)
+                    self.console.print(
+                        "A network error prevented checking sign-in status!",
+                        style=WARNING,
+                    )
                     second = 30
                     continue
                 # print(response.json())  # 调试使用
                 if data.get("error_code"):
                     self.console.print(
-                        f"该账号疑似被风控，建议近期避免扫码登录账号！\n响应数据: {data}",
+                        f"This account may be restricted. Avoid QR-code sign-in for now.\nResponse data: {data}",
                         style=WARNING,
                     )
                     second = 30
                 elif not (data := data.get("data")):
-                    self.console.print(f"响应内容异常: {data}", style=ERROR)
+                    self.console.print(f"Unexpected response: {data}", style=ERROR)
                     second = 30
                 elif (s := data["status"]) == "3":
                     redirect_url = data["redirect_url"]
@@ -189,7 +192,7 @@ class __Register:
                     second += 1
             else:
                 self.console.print(
-                    "扫码登录失败，请使用其他方式获取 Cookie 并写入配置文件！",
+                    "QR-code sign-in failed. Obtain a Cookie another way and add it to the configuration file!",
                     style=WARNING,
                 )
                 return None, None
@@ -212,14 +215,15 @@ class __Register:
             return data, headers, history
         except HTTPError as e:
             self.console.print(
-                f"扫码登录发生异常，请向作者反馈，错误信息: {e}", style=ERROR
+                f"An error occurred during QR-code sign-in. Please report it to the author: {e}",
+                style=ERROR,
             )
             return None, None, None
 
     async def run(
         self,
     ):
-        self.cache = str(self.cache.joinpath("扫码后请关闭该图片.png"))
+        self.cache = str(self.cache.joinpath("Close this image after scanning.png"))
         url, token = await self.get_qr_code()
         if not url:
             return False

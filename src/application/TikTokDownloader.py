@@ -109,11 +109,11 @@ class TikTokDownloader:
             0: _("启用"),
         }
         self.__function_menu = (
-            (_("手动输入 Cookie (抖音)"), self.write_cookie_input),
+            ("Enter Cookie manually (Douyin)", self.write_cookie_input),
             (_("从剪贴板读取 Cookie (抖音)"), self.write_cookie_paste),
             # (_("从浏览器读取 Cookie (抖音)"), self.browser_cookie),
             # (_("扫码登录获取 Cookie (抖音)"), self.auto_cookie),
-            (_("手动输入 Cookie (TikTok)"), self.write_cookie_input_tiktok),
+            ("Enter Cookie manually (TikTok)", self.write_cookie_input_tiktok),
             (_("从剪贴板读取 Cookie (TikTok)"), self.write_cookie_paste_tiktok),
             # (_("从浏览器读取 Cookie (TikTok)"), self.browser_cookie_tiktok),
             (_("终端交互模式"), self.complete),
@@ -141,7 +141,7 @@ class TikTokDownloader:
         **kwargs,
     ):
         self.console.warning(
-            "该功能正在重构，未来开发完成重新开放！",
+            "This feature is being rebuilt and will be available again in a future release!",
         )
 
     async def server(self):
@@ -199,7 +199,7 @@ class TikTokDownloader:
     async def __init_language(self):
         languages = (
             (
-                "简体中文",
+                "Simplified Chinese",
                 "zh_CN",
             ),
             (
@@ -208,7 +208,7 @@ class TikTokDownloader:
             ),
         )
         language = choose(
-            "请选择语言(Please Select Language)",
+            "Please select a language",
             [i[0] for i in languages],
             self.console,
         )
@@ -349,7 +349,7 @@ class TikTokDownloader:
                     "复制 Cookie 内容至剪贴板后，按回车键确认继续；若输入任意内容并按回车，则取消操作："
                 )
             ):
-                self.logger.info(_("取消写入 Cookie 操作！"))
+                self.logger.info("Cookie entry cancelled!")
                 return
             if self.cookie.run(tiktok=tiktok):
                 await self.check_settings()
@@ -357,11 +357,11 @@ class TikTokDownloader:
             if not (
                 cookie := self.console.input(
                     _(
-                        "粘贴 Cookie 内容后按回车键确认继续；输入任意内容后回车则取消操作："
+                        "Paste the Cookie and press Enter to continue; press Enter without a Cookie to cancel: "
                     )
                 )
             ):
-                self.logger.info(_("取消写入 Cookie 操作！"))
+                self.logger.info("Cookie entry cancelled!")
                 return
             if self.cookie.run(cookie, tiktok=tiktok):
                 await self.check_settings()
@@ -401,9 +401,11 @@ class TikTokDownloader:
                 _("作品下载记录功能已禁用！"),
             )
             return
-        await self.recorder.delete_ids(self.console.input("请输入需要删除的作品 ID："))
+        await self.recorder.delete_ids(
+            self.console.input("Enter the work IDs to delete: ")
+        )
         self.console.info(
-            "删除作品下载记录成功！",
+            "Download records deleted successfully!",
         )
 
     async def check_settings(self, restart=True):

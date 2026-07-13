@@ -50,7 +50,7 @@ class TtWid:
             cookie_jar.load(c)
             if v := cookie_jar.get(key):
                 return {key: v.value}
-        logger.error(f"获取 {key} 参数失败！")
+        logger.error(f"Failed to retrieve the {key} parameter!")
 
 
 class TtWidTikTok(TtWid):
@@ -96,7 +96,7 @@ class TtWidTikTok(TtWid):
 async def test():
     from src.testers import Logger
 
-    print("抖音", await TtWid.get_tt_wid(Logger(), PARAMS_HEADERS, proxy=None))
+    print("Douyin", await TtWid.get_tt_wid(Logger(), PARAMS_HEADERS, proxy=None))
     print(
         "TikTok",
         await TtWidTikTok.get_tt_wid(

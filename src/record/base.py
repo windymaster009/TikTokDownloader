@@ -56,7 +56,7 @@ class BaseLogger:
         if (r := Path(root)).is_dir():
             return r
         self.console.print(
-            f"日志储存路径 {root} 无效，程序将使用项目根路径作为储存路径"
+            f"Log path {root} is invalid; the project root will be used instead"
         )
         return default
 
@@ -68,7 +68,7 @@ class BaseLogger:
             return name
         except ValueError:
             self.console.print(
-                f"日志名称格式 {name} 无效，程序将使用默认时间格式：年-月-日 时.分.秒"
+                f"Log filename format {name} is invalid; the default format year-month-day hour.minute.second will be used"
             )
             return "%Y-%m-%d %H.%M.%S"
 

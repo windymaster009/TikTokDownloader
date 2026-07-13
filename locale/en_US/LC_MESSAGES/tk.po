@@ -1313,7 +1313,7 @@ msgstr ""
 #: C:\Users\You\PycharmProjects\TikTokDownloader\src\downloader\download.py:514
 #, python-brace-format
 msgid "【{type}】{name}"
-msgstr ""
+msgstr "[{type}] {name}"
 
 #: C:\Users\You\PycharmProjects\TikTokDownloader\src\downloader\download.py:622
 msgid "文件缓存异常，尝试重新下载"

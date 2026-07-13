@@ -429,7 +429,7 @@ class Downloader:
                         type=type_, name=name, index=index
                     )
                 )
-                self.log.info(f"文件路径: {p.resolve()}", False)
+                self.log.info(f"File path: {p.resolve()}", False)
                 skipped.add(id_)
                 continue
             tasks.append(
@@ -473,7 +473,7 @@ class Downloader:
                     type=type_, name=name
                 )
             )
-            self.log.info(f"文件路径: {p.resolve()}", False)
+            self.log.info(f"File path: {p.resolve()}", False)
             skipped.add(id_)
             return
         tasks.append(
@@ -546,7 +546,7 @@ class Downloader:
                     url,
                     temp_root.with_name(f"{name}.{static_suffix}"),
                     p,
-                    f"【封面】{name}",
+                    f"[Cover] {name}",
                     id_,
                     static_suffix,
                 )
@@ -565,7 +565,7 @@ class Downloader:
                     url,
                     temp_root.with_name(f"{name}.{dynamic_suffix}"),
                     p,
-                    f"【动图】{name}",
+                    f"[Animated image] {name}",
                     id_,
                     dynamic_suffix,
                 )
@@ -719,7 +719,7 @@ class Downloader:
             return False
         self.save_file(cache, actual)
         self.log.info(_("{show} 文件下载成功").format(show=show))
-        self.log.info(f"文件路径 {actual.resolve()}", False)
+        self.log.info(f"File path: {actual.resolve()}", False)
         await self.recorder.update_id(id_)
         self.add_count(show, id_, count)
         return True
@@ -891,7 +891,7 @@ class Downloader:
         self.log.info(f"{show} Response Code: {response.status_code}", False)
         self.log.info(f"{show} Response Headers: {response.headers}", False)
         self.log.info(
-            f"{show} 文件大小 {format_size(length)}",
+            f"{show} file size: {format_size(length)}",
             False,
         )
 

@@ -56,7 +56,7 @@ class Database:
 
     async def __write_default_option(self):
         await self.database.execute("""INSERT OR IGNORE INTO option_data (NAME, VALUE)
-                            VALUES ('Language', 'zh_CN');""")
+                            VALUES ('Language', 'en_US');""")
 
     async def read_config_data(self):
         await self.cursor.execute("SELECT * FROM config_data")

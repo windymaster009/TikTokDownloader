@@ -51,7 +51,7 @@ class Cache:
             mark,
         )
         await self.database.update_mapping_data(*data)
-        self.log.info(f"更新缓存数据: {', '.join(data)}", False)
+        self.log.info(f"Updated cache data: {', '.join(data)}", False)
 
     async def has_cache(self, id_: str) -> dict:
         return await self.database.read_mapping_data(id_)
@@ -71,7 +71,7 @@ class Cache:
                 f"{prefix}{id_}_{data['mark'] or data['name']}_{suffix}"
             )
         ).is_dir():
-            self.log.info(f"{old_folder} 文件夹不存在，自动跳过", False)
+            self.log.info(f"Folder {old_folder} does not exist; skipped", False)
             return
         if data["mark"] != mark:
             self.__rename_folder(old_folder, prefix, suffix, id_, mark)
@@ -111,7 +111,7 @@ class Cache:
             new_folder,
             _("文件夹"),
         )
-        self.log.info(f"文件夹 {old_folder} 已重命名为 {new_folder}", False)
+        self.log.info(f"Renamed folder {old_folder} to {new_folder}", False)
 
     def __rename_works_folder(
         self,
@@ -130,7 +130,7 @@ class Cache:
                 new_,
                 _("文件夹"),
             )
-            self.log.info(f"文件夹 {old_} 重命名为 {new_}", False)
+            self.log.info(f"Renamed folder {old_} to {new_}", False)
             return new_
         return old_
 
@@ -207,7 +207,7 @@ class Cache:
             new_file,
             _("文件"),
         )
-        self.log.info(f"文件 {old_file} 重命名为 {new_file}", False)
+        self.log.info(f"Renamed file {old_file} to {new_file}", False)
         return True
 
     @Retry.retry_limited
