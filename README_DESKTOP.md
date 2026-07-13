@@ -1,25 +1,48 @@
-# DouK Downloader Desktop
+# TikTok Downloader Desktop
 
-This branch adds a Windows-friendly PySide6 desktop interface while keeping the original terminal entry point unchanged.
+The `destop-mod` branch adds a Windows-friendly PySide6 desktop application while keeping the original terminal entry point unchanged.
 
-## Included in the first desktop version
+## Desktop milestone 2
 
-- Paste one or more TikTok or Douyin video/photo-post links.
-- Detect TikTok or Douyin automatically, with a manual platform override.
-- Select and remember a download folder.
-- Run downloads outside the UI thread.
-- Display status, progress, and activity logs.
-- Save optional TikTok/Douyin cookies and proxies locally.
-- Open the output folder after a successful download.
+- Sidebar navigation matching the planned desktop layout.
+- Home dashboard.
+- Direct TikTok and Douyin video/photo-post downloads.
+- One or multiple links per batch.
+- Real download percentage, speed, ETA, item status, and batch progress.
+- Download history saved locally.
+- Clipboard link monitor.
+- Dedicated settings and application-log pages.
+- Optional TikTok/Douyin cookies and proxies.
+- Open the output folder after completion.
 
-## Run with uv
+Direct-link downloads now use `yt-dlp`. This avoids the upstream DouK encrypted-request code that currently returns `Failed to retrieve data` for some TikTok posts. The original DouK code remains in the repository for the advanced account, collection, and live features that will be connected in later milestones.
+
+## Update an existing checkout
+
+```powershell
+git fetch origin
+git checkout destop-mod
+git pull origin destop-mod
+```
+
+Then refresh dependencies because milestone 2 adds `yt-dlp`.
+
+### Run with uv
 
 ```powershell
 uv sync --no-dev
 uv run desktop.py
 ```
 
-## Run with pip
+### Run with pip
+
+```powershell
+venv\Scripts\activate
+pip install -r requirements.txt
+python desktop.py
+```
+
+For a fresh pip environment:
 
 ```powershell
 python -m venv venv
@@ -28,8 +51,10 @@ pip install -r requirements.txt
 python desktop.py
 ```
 
-The first launch can create the project's normal `settings.json` file. Cookie and proxy values entered in the desktop Settings dialog are copied into the existing downloader settings before each download.
+## Cookies
 
-## Current scope
+Most public posts should work without a cookie. When TikTok or Douyin requires login, open **Settings** in the sidebar and paste a fresh raw Cookie header from your own browser session.
 
-The first version supports direct video and photo-post links. Account batch downloads, collections, live downloads, detailed per-file network progress, cancellation, system-tray clipboard monitoring, and a packaged installer can be added in later desktop milestones.
+## Current advanced-feature scope
+
+Direct links, history, settings, logs, and clipboard monitoring are functional. Account batch downloads, collections, live recording, cancellation, and a packaged Windows installer remain planned for later desktop milestones.
